@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div style="text-align: center">
+		<h1>Add to Cart</h1>
+		<!-- 
+	<ul th:each="obj:${cart}">
+		<li th:text="${obj.cartId}"></li>
+		<li th:text="${obj.user.id}"></li>
+		<li th:text="${obj.food.food_id}"></li>
+		<li th:text="${obj.quantity}"></li>
+		
+	</ul>
+	 -->
+
+
+
+		<p th:text="${email}"></p>
+		<a
+			th:href="@{/login/loginUser/cart/{email}/{cartId}/{uid}/{fid}/{quantity}
+	(email=${email},
+	cartId=${cart.cartId},
+	uid=${cart.user.id},
+	fid=${cart.food.food_id},
+	quantity=${cart.quantity})}">
+			<button>Confirm</button>
+
+		</a>
+	</div>
+</body>
+</html>
+

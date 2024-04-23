@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+	th:replace="base::layout(~{::body})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>home page</title>
+</head>
+<body>
+	<div class="bg-image">
+		<div class="home-containt text-center">
+			<h2>Cafeteria</h2>
+			<p>
+				<b>Coffee Cafeteria online order portal</b>
+			</p>
+			<a th:href="@{login}"><button class="btn btn-success text-white">Get</button></a>
+		</div>
+	</div>
+
+</body>
+</html>

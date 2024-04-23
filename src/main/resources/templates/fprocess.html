@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div style="text-align: center; margin-top: 100px;">
+		<table style="border: 1px solid blue; padding: 10px;">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>food id</th>
+					<th>user id</th>
+					<th>qty</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td th:text="${cart.cart_id}"></td>
+					<td th:text="${food.food_id}"></td>
+					<td th:text="${user.user_id}"></td>
+					<td>1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

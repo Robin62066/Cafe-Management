@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+	th:replace="base::layout(~{::body})">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SignUp page</title>
+</head>
+<body>
+
+	<div class="container p-5">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card point-card">
+					<div class="card-body">
+						<h4 class="form-signnin-heading text-center">Sign Up</h4>
+						<form onsubmit="return validateForm()" class="form-signin"
+							method="post" th:action="@{/signUp/saveUser}" th:object="${user}">
+
+							<!-- Alert messages -->
+							<h4 th:text="${session.msg}" class="text-center text-success"></h4>
+							<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+							<div class="form-group mt-2">
+								<label>Full Name</label> <input type="text" id="name"
+									name="name" class="form-control" required="required"
+									autofocus="autofocus">
+							</div>
+
+
+							<div class="form-group mt-2">
+								<label>Email</label> <input type="email" id="username"
+									name="email" class="form-control" required="required"
+									autofocus="autofocus">
+							</div>
+							<div class="form-group mt-2">
+								<label>Password</label> <input type="password" id="password"
+									name="password" class="form-control" required="required"
+									autofocus="autofocus">
+							</div>
+							<div class="form-group mt-2">
+								<label>Conform Password</label> <input type="password"
+									id="cpassword" name="cpassword" class="form-control"
+									required="required" autofocus="autofocus">
+							</div>
+							<div class="form-group mt-2">
+								<label>Phone Number</label> <input type="text" id="phone"
+									name="phone" class="form-control" required="required"
+									autofocus="autofocus">
+							</div>
+							<div class="form-group mt-2">
+								<label>Address</label> <input type="text" id="address"
+									name="address" class="form-control" required="required"
+									autofocus="autofocus">
+							</div>
+							<button class="btn btn-primary col-md-12 mt-2" type="submit">Submit</button>
+							<a th:href="@{signUp}"><button
+									class="btn btn-primary col-md-12 mt-2">Reset</button></a>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script>
+		function validateForm() {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("cpassword").value;
+			var phone = document.getElementById("phone").value;
+
+			if (password !== confirmPassword) {
+				alert("Passwords do not match");
+				return false; // Prevent form submission
+			}
+
+			// Regular expression to match only digits
+			var regex1 = /^[0-9]+$/;
+
+			var regex2 = /^\d{10}$/;
+
+			if (!regex2.test(phone)) {
+				alert("Phone number must be exactly 10 digits long and contain only digits");
+				if (!regex1.test(phone)) {
+					alert("Phone number must contain only digits");
+					return false; // Prevent form submission
+				}
+				return false; // Prevent form submission
+			}
+			return true; // Allow form submission
+		}
+	</script>
+</body>
+</html>

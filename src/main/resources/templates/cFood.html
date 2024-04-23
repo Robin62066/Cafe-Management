@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.com">
+<!-- fregment is the concept that collect info from other page -->
+
+<head>
+<meta charset="ISO-8859-1">
+<title>base page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+.mins {
+	min-height: 80vh;
+}
+</style>
+</head>
+<body>
+
+	<!-- Navbar Start -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+				aria-controls="navbarTogglerDemo01" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+				<a class="navbar-brand" th:href="@{/}"><i
+					class="fa-solid fa-mug-saucer"></i>HoT Lips</a>
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href="@{/}"><i
+							class="fa-solid fa-house"></i>Home</a></li>
+
+					<li>
+
+
+
+						<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+							<ul class="navbar-nav">
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#"
+									id="navbarDarkDropdownMenuLink" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
+									<ul class="dropdown-menu dropdown-menu-dark"
+										aria-labelledby="navbarDarkDropdownMenuLink">
+										<li><a class="dropdown-item"
+											th:href="@{/login/cTable/{email}(email=${email})}">Check
+												Tables</a></li>
+
+									</ul></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+				<div class="me-2 mt-0 mb-0">
+					<i class="fa-solid fa-user center"></i>
+				</div>
+				<div>
+					<p th:text="${email}"></p>
+				</div>
+				<form class="d-flex">
+					<a th:href="@{/login}" class="btn btn-success"><i
+						class="fa-solid fa-right-to-bracket"></i>LogOut</a>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Navbar Start -->
+	<div class="card card-body">
+		<table class="table tbl c1">
+			<thead>
+				<tr class="tc1">
+					<th scope="col"><div>#</div></th>
+					<th scope="col"><div>Food Items</div></th>
+					<th scope="col"><div>Pics</div></th>
+					<th scope="col"><div>Description</div></th>
+					<th scope="col"><div></div></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row"><div class="tc2">1</div></th>
+					<td><div class="tc2">Hot Beverage</div></td>
+					<td><div class="tci">
+							<img
+								src="https://t3.ftcdn.net/jpg/06/44/19/40/240_F_644194031_AEh2ueGnGiVzqOCch2qEuKU4rMGGSVjZ.jpg"
+								width="300px">
+						</div></td>
+					<td>
+						<div class="tc2 mt-2">
+							<div>
+								<p>HOT COFFEE</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>SPECIAL COFFEE</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>CREAM HOT COFFEE</p>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="tc2 p-0 mt-0">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f11}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f12}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f21}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f22}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f31}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f32}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><div class="tc2">2</div></th>
+					<td><div class="tc2">COLD BEVERAGE</div></td>
+					<td><div class="tci">
+							<img
+								src="https://t4.ftcdn.net/jpg/07/33/66/73/240_F_733667340_wVbZHcThdANvmw3s9R9pv0wdCeTaCD0F.jpg"
+								width="300px">
+						</div></td>
+					<td>
+						<div class="tc2 mt-2">
+							<div>
+								<p>COLD CREAM COFFEE</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>COLD CREAM COFFEE WTH ICE CUBES</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>CHOCOLATE MILK SHAKE</p>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="tc2 p-0 mt-0">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f41}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f42}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f51}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f52}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f61}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f62}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><div class="tc2">3</div></th>
+					<td><div class="tc2">Burger</div></td>
+					<td><div class="tci">
+							<img
+								src="https://as2.ftcdn.net/v2/jpg/05/79/45/53/1000_F_579455355_JDq8gIUopvOH5kJKan7F3UwpNYjrIlrw.jpg"
+								width="300px">
+						</div></td>
+					<td>
+						<div class="tc2 mt-5">
+							<div>
+								<p>VEG BURGER</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>HAM BURGER</p>
+							</div>
+						</div>
+
+					</td>
+					<td>
+						<div class="tc2 p-0 mt-5">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f71}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f72}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f81}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f82}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><div class="tc2">4</div></th>
+					<td><div class="tc2">BREAD ITEMS</div></td>
+					<td><div class="tci">
+							<img
+								src="https://as1.ftcdn.net/v2/jpg/06/61/01/74/1000_F_661017410_qyjfkCiMoDArAjjOwPun3ef97cHcn7eX.jpg"
+								width="300px">
+						</div></td>
+					<td>
+						<div class="tc2 mt-2">
+							<div>
+								<p>BREAD TOAST WITH BUTTER(EACH)</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>BREAD WITH JAM(EACH)</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>CHEESE TOAST(PER PLATE)</p>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="tc2 p-0 mt-0">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f91}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f92}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f101}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f102}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f111}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f112}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+					</td>
+				<tr>
+					<th scope="row"><div class="tc2">5</div></th>
+					<td><div class="tc2">Sandwich</div></td>
+					<td><div class="tci">
+							<img
+								src="https://as1.ftcdn.net/v2/jpg/02/28/29/54/1000_F_228295461_Zs8colbBO9pgaYjLwnDNLXkSCauyRFUr.jpg"
+								width="300px">
+						</div></td>
+					<td>
+						<div class="tc2 mt-2">
+							<div>
+								<p>VEG SANDWICH(PER PLATE)</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>CHEESE SANDWICHE(PER PLATE)</p>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<p>GRILLED SANDWICHE(PER PLATE)</p>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="tc2 p-0 mt-0">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f121}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f122}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f131}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f132}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+						<div class="tc2">
+							<div>
+								<a th:href="@{/login/loginUser/chkFood/f141}"><button
+										type="button" class="btn btn-warning">Add</button></a> <a
+									th:href="@{/login/loginUser/chkFood/f142}"><button
+										type="button" class="btn btn-danger">Delete</button></a>
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+
+
+	</div>
+
+
+
+
+	<div class="f">
+		<footer class="bg-body-tertiary text-center">
+			<!-- Copyright -->
+			<div class="text-center p-3"
+				style="color: rgb(240, 64, 64); font-size: 18px;">
+				© 2024 Copyright:&nbsp;&nbsp;&nbsp; <a class="c3">Cafe-Management-System</a>
+			</div>
+		</footer>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+</body>
+</html>

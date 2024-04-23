@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.com">
+<!-- fregment is the concept that collect info from other page -->
+<head>
+<meta charset="ISO-8859-1">
+<title>base page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+.row .card {
+	margin-top: 30px;
+	margin-left: 100px;
+	width: 22rem;
+}
+
+.c3 {
+	color: rgb(238, 235, 233);
+	font-size: 20px;
+}
+
+.f {
+	background-color: rgb(13, 13, 74);
+	color: rgb(249, 249, 249);
+}
+</style>
+</head>
+<body>
+
+	<!-- Navbar Start -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#"> <i
+			class="fa-solid fa-mug-saucer"></i>HoT Lips
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/}">
+						<i class="fa-solid fa-house"></i>Home
+				</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Menu Item </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item"
+							th:href="@{/login/loginUser/HotBeverage/{email}(email = ${email})}">Hot
+							Beverage</a> <a class="dropdown-item"
+							th:href="@{/login/loginUser/coldBeverage/{email}(email = ${email})}">Cold
+							Beverage</a> <a class="dropdown-item"
+							th:href="@{/login/loginUser/burger/{email}(email = ${email})}">Burger</a>
+						<a class="dropdown-item"
+							th:href="@{/login/loginUser/noodles/{email}(email = ${email})}">Noodles</a>
+						<a class="dropdown-item"
+							th:href="@{/login/loginUser/sandwiches/{email}(email = ${email})}">Sandwiches</a>
+						<a class="dropdown-item"
+							th:href="@{/login/loginUser/breadIteam/{email}(email = ${email})}">Bread
+							Items</a>
+					</div></li>
+
+
+			</ul>
+			<div>
+				<p th:text="${email}"></p>
+			</div>
+
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/login}">
+						<i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/login/loginUser/cart}"> <i
+						class="fa-solid fa-cart-shopping"></i> Cart
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- navbar ends -->
+
+
+
+	<div style="max-height: 90vh;">
+		<div class="mnb">
+			<div class="d-flex justify-content-center">
+				<h4>Table Information</h4>
+			</div>
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>Table No</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="table:${table}">
+						<td th:text="${table.tid}"></td>
+						<td th:text="${table.status}"></td>
+
+					</tr>
+
+				</tbody>
+
+			</table>
+
+
+
+
+
+
+			<div class="d-flex justify-content-center">
+				<a
+					th:href="@{/login/loginUser/bkutable/{email}/{tid}
+    (email=${email}
+    )}">
+					<button type="button" class="btn btn-success m-2">Book</button>
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="f" style="margin-top: 88px;">
+		<footer class="bg-body-tertiary text-center">
+			<!-- Copyright -->
+			<div class="text-center p-3"
+				style="color: rgb(240, 64, 64); font-size: 18px;">
+				© 2024 Copyright:&nbsp;&nbsp;&nbsp; <a class="c3">Cafe-Management-System</a>
+			</div>
+		</footer>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>
